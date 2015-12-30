@@ -1542,7 +1542,7 @@ HullError HullLibrary::calchullgen(float3* verts, int verts_count, int vlimit, f
 		bmin = VectorMin(bmin,verts[j]);
 		bmax = VectorMax(bmax,verts[j]);
 	}
-	float epsilon = magnitude(bmax-bmin) * 0.001f;
+	float epsilon = magnitude(bmax-bmin) * 0.00001f;
 	const bool useAreaTest  = (areaTestEpsilon == 0.0f) ? false : true;
 	const float areaEpsilon = useAreaTest ?  areaTestEpsilon*2.0f : epsilon*epsilon*0.1f;
 

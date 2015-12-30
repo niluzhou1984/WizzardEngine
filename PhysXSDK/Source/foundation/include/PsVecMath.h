@@ -34,7 +34,7 @@
 //TODO: dima: reference all platforms with SIMD support here,
 //all unknown/experimental cases should better default to NO SIMD.
 
-#if defined(PX_X86) || defined(PX_X64) || defined(PX_WINMODERN) || defined(PX_PS3) || defined(PX_X360) || (defined(PX_LINUX) && (defined(PX_X86) || defined(PX_X64))) || (defined(PX_ANDROID) && defined(PX_ARM_NEON)) || defined(PX_XBOXONE)
+#if (!defined(PX_CROSSBRIDGE)) && (defined(PX_X86) || defined(PX_X64) || defined(PX_WINMODERN) || defined(PX_PS3) || defined(PX_X360) || (defined(PX_LINUX) && (defined(PX_X86) || defined(PX_X64))) || (defined(PX_ANDROID) && defined(PX_ARM_NEON)) || defined(PX_XBOXONE))
 #define COMPILE_VECTOR_INTRINSICS 1 // use SIMD         
 #else
 #define COMPILE_VECTOR_INTRINSICS 0 // do not use SIMD
@@ -46,7 +46,7 @@
 #define VECMATHAOS_ASSERT(x) {}
 #endif
 
-#if defined(COMPILE_VECTOR_INTRINSICS) && (defined(PX_X86) || defined(PX_X64)) && (defined PX_LINUX || defined PX_ANDROID || defined PX_APPLE || defined PX_PS4 || (defined PX_WINMODERN && defined PX_ARM_NEON))
+#if defined(COMPILE_VECTOR_INTRINSICS) && (defined(PX_X86) || defined(PX_X64)) && (defined PX_LINUX || defined PX_ANDROID || defined PX_APPLE || defined PX_PS4 || (defined PX_WINMODERN && defined PX_ARM_NEON)) && (!defined(PX_CROSSBRIDGE))
 // only SSE2 compatible platforms should reach this
 #include <xmmintrin.h>
 #endif

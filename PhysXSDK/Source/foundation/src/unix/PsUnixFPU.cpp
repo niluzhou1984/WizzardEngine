@@ -68,7 +68,9 @@ physx::shdfnd::FPUGuard::~FPUGuard()
 
 PX_FOUNDATION_API void physx::shdfnd::enableFPExceptions()
 {
-#if defined PX_LINUX
+#if defined PX_CROSSBRIDGE
+#pragma message "enableFPExceptions() is not implemented by AVM" 
+#elif defined PX_LINUX
 	feclearexcept(FE_ALL_EXCEPT);
 	feenableexcept(FE_INVALID|FE_DIVBYZERO|FE_OVERFLOW);	
 #elif defined PX_OSX
@@ -84,7 +86,9 @@ PX_FOUNDATION_API void physx::shdfnd::enableFPExceptions()
 
 PX_FOUNDATION_API void physx::shdfnd::disableFPExceptions()
 {
-#if defined PX_LINUX
+#if defined PX_CROSSBRIDGE
+#pragma message "disableFPExceptions() is not implemented by AVM" 
+#elif defined PX_LINUX
 	fedisableexcept(FE_ALL_EXCEPT);
 #elif defined PX_OSX
 	// clear any pending exceptions

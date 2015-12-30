@@ -383,7 +383,7 @@ PX_FORCE_INLINE void AABBTreeNode::compress(
 }
 
 
-#if (defined(PX_X86) || defined (PX_X64))
+#if (defined(PX_X86) || defined (PX_X64)) && !defined(PX_AVM)
 PX_FORCE_INLINE Vec4V convertScale(PxI32 scale)
 {
 #if COMPILE_VECTOR_INTRINSICS
@@ -395,7 +395,7 @@ PX_FORCE_INLINE Vec4V convertScale(PxI32 scale)
 }
 #endif
 
-#if (defined(PX_X86) || defined (PX_X64))
+#if (defined(PX_X86) || defined (PX_X64)) && !defined(PX_AVM)
 PX_FORCE_INLINE Vec4V splatScale(Vec4V s)
 {
 #if COMPILE_VECTOR_INTRINSICS
@@ -425,7 +425,7 @@ PX_FORCE_INLINE	void AABBTreeNode::getAABBCenterExtentsV(Vec3V* center, Vec3V* e
 	PxI32 scale = PxI32(getExtentScale()) << 8;
 	PX_ASSERT(!PX_IS_DENORM(scale));
 
-	#if (defined(PX_X86) || defined (PX_X64))
+	#if (defined(PX_X86) || defined (PX_X64)) && !defined(PX_AVM)
 		Vec4V s = convertScale(scale); // AP todo: make this cross-platform
 		Vec4V scaleV =splatScale(s);
 		Vec4V multiplier = V4Mul(scaleMul4, scaleV);
@@ -437,7 +437,7 @@ PX_FORCE_INLINE	void AABBTreeNode::getAABBCenterExtentsV(Vec3V* center, Vec3V* e
 	Vec4V extents3 = Vec4V_From_VecI32V((VecI32V&)toInt);
 	// we know xyz has a 0 in W, hence so does toInt, hence also extents3. 
 
-	#if (defined(PX_X86) || defined (PX_X64))
+	#if (defined(PX_X86) || defined (PX_X64)) && !defined(PX_AVM)
 		*extents = Vec3V_From_Vec4V_WUndefined(V4Mul(extents3, multiplier));
 	#else
 		*extents = Vec3V_From_Vec4V_WUndefined(V4Mul(extents3, Vec4V_From_FloatV(multiplier)));

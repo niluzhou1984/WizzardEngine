@@ -113,7 +113,7 @@ namespace shdfnd
 
 #if defined(PX_WINDOWS) || defined(PX_XBOXONE)
 #include "windows/PsWindowsFPU.h"
-#elif defined(PX_LINUX) || defined(PX_PS4) || defined(PX_OSX)
+#elif (defined(PX_LINUX) && !defined(PX_CROSSBRIDGE)) || defined(PX_PS4) || defined(PX_OSX)
 #include "unix/PsUnixFPU.h"
 #else
 PX_INLINE physx::shdfnd::SIMDGuard::SIMDGuard() {}

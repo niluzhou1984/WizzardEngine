@@ -42,7 +42,7 @@ PX_FORCE_INLINE void platformAlignedFree(void* ptr)
 {
 	_aligned_free(ptr);
 }
-#elif defined(PX_LINUX) || defined(PX_ANDROID)
+#elif (defined(PX_LINUX) && !defined(PX_CROSSBRIDGE)) || defined(PX_ANDROID)
 PX_FORCE_INLINE void* platformAlignedAlloc(size_t size)
 {
 	return ::memalign(16, size);
@@ -73,6 +73,18 @@ PX_FORCE_INLINE void platformAlignedFree(void* ptr)
 
 	PxU8* base = ((PxU8*)ptr) - ((size_t*)ptr)[-1];
 	::free(base);
+}
+#elif defined(PX_CROSSBRIDGE)
+PX_FORCE_INLINE void* platformAlignedAlloc(size_t size)
+{
+	void *ptr = NULL;
+	::posix_memalign(&ptr, 16, size);
+	return ptr;
+}
+
+PX_FORCE_INLINE void platformAlignedFree(void* ptr)
+{
+	::free(ptr);
 }
 #else
 // on all other platforms we get 16-byte alignment by default

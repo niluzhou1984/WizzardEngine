@@ -134,6 +134,10 @@ bool SocketImpl::flush()
 
 bool SocketImpl::connect(const char* host, PxU16 port, PxU32 timeout)
 {
+//visual debug is not connected by avm
+#if defined(PX_CROSSBRIDGE)
+	return false;
+#else
 	sockaddr_in	socketAddress;
 	PxMemSet(&socketAddress, 0, sizeof(sockaddr_in));
 	socketAddress.sin_family = AF_INET;
@@ -214,6 +218,7 @@ bool SocketImpl::connect(const char* host, PxU16 port, PxU32 timeout)
 	mPort = port;
 	mHost = host;
 	return true;
+#endif //  defined(PX_CROSSBRIDGE) endif
 }
 
 

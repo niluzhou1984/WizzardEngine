@@ -117,6 +117,10 @@ Platform define
 #   elif defined(__ppc64__)
 #       define PX_PPC
 #	define PX_PPC64
+#	elif defined(__CROSSBRIDGE__)
+#		define PX_AVM
+#       define PX_X86
+#		define PX_VMX
 #   else
 #	error "Unknown platform"
 #   endif
@@ -135,6 +139,9 @@ Platform define
 #			define PX_OSX
 #		endif
 #	elif defined(__CYGWIN__)
+#		if defined(__CROSSBRIDGE__)
+#			define PX_CROSSBRIDGE
+#		endif
 #   	define PX_CYGWIN
 #   	define PX_LINUX
 #   	define PX_UNIX
@@ -399,7 +406,7 @@ PX_COMPILE_TIME_ASSERT(PX_OFFSET_OF(PxPackValidation, a) == 8);
 #define PX_IS_X64 0
 #endif
 
-#if defined(PX_X86) || defined(PX_X64)
+#if (defined(PX_X86) || defined(PX_X64)) && !defined(PX_AVM)
 #define PX_IS_INTEL 1
 #else
 #define PX_IS_INTEL 0

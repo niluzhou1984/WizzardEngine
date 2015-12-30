@@ -13,7 +13,7 @@
 
 #include "PsCpu.h"
 
-#if defined(PX_X86)
+#if defined(PX_X86) && !defined(PX_AVM)
 #define cpuid(op, reg)\
     __asm__ __volatile__("pushl %%ebx      \n\t" /* save %ebx */\
                  "cpuid            \n\t"\

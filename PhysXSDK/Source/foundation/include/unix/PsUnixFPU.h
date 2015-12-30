@@ -14,7 +14,7 @@
 #ifndef PX_FOUNDATION_PSUNIXFPU_H
 #define PX_FOUNDATION_PSUNIXFPU_H
 
-#if defined(PX_LINUX) || defined(PX_PS4) || defined(PX_OSX)
+#if (defined(PX_LINUX) && !defined(PX_CROSSBRIDGE)) || defined(PX_PS4) || defined(PX_OSX) 
 #include "PsVecMath.h"
 
 PX_INLINE physx::shdfnd::SIMDGuard::SIMDGuard()

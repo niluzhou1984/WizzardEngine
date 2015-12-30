@@ -84,7 +84,9 @@ namespace
 	static void setTid(_ThreadImpl& threadImpl)
 	{
 		// query TID
-#if defined(PX_PS4)
+#if defined(PX_CROSSBRIDGE)
+		
+#elif defined(PX_PS4)
 	//AM: TODO: neither of the below are implemented
 #elif defined(PX_APPLE)
 		threadImpl.tid = syscall(SYS_gettid);
@@ -270,7 +272,9 @@ PxU32 ThreadImpl::setAffinityMask(PxU32 mask)
 
 	if (getThread(this)->state == _PxThreadStarted)
 	{
-#ifdef PX_PS4
+#if defined(PX_CROSSBRIDGE)
+
+#elif defined(PX_PS4)
 		prevMask = setAffinityMaskPS4(getThread(this)->thread, mask);
 #elif !defined(PX_APPLE) // Apple doesn't support syscall with getaffinity and setaffinity
 		PxI32 errGet = syscall(__NR_sched_getaffinity, getThread(this)->tid, sizeof(prevMask), &prevMask);

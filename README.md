@@ -1,16 +1,16 @@
-# ±àÒëÔËĞĞ¹ı³ÌÈçÏÂ£º
-## A.°²×°crossbridge»·¾³
-1. ÏÂÔØ[crossbridge](http://sourceforge.net/projects/crossbridge-community/files/latest/download)
-2. ÏÂÔØ[AIRSDK_Compiler](http://www.adobe.com/devnet/air/air-sdk-download.html)
-3. ½âÑ¹crossbridge
-4. ½âÑ¹AIRSDK_Compilerµ½your/path/to/crossbridge/Ä¿Â¼ÏÂ£¬ÖØÃüÃûÎªflex_sdk
-5. ÏÂÔØ32Î»cygwinµÄ[setup-x86.exe](https://cygwin.com/install.html) , ²¢Ìæ»»your/path/to/crossbridge/Ä¿Â¼ÏÂµÄsetup-x86.exe
-6. ¸ü»»cygwinµÄÔ´(Èç¹ûÕâ¸öÄ¬ÈÏÔ´ÏÂÔØËÙ¶È²»Âı£¬¿ÉÒÔÌø¹ıÕâÒ»²½))
-    * ±à¼­your/path/to/crossbridge/Ä¿Â¼ÏÂµÄrun.bat½Å±¾:
-        > ½Å±¾ÖĞËùÓĞµÄÔ´µØÖ·**http://cygwin.mirror.constant.com** »»³É½Ï¿ìµÄÔ´£¬¹úÄÚÈç**http://mirrors.163.com/cygwin/**
-7. Ë«»÷ÔËĞĞrun.bat,°´ÌáÊ¾°²×°
-8. ĞŞ¸Ä**your/path/to/crossbridge/sdk/usr/include/malloc.h**Í·ÎÄ¼şÒÔÖ§³ÖPhysx±àÒë£º
-    * Ô´ÎÄ¼ş£º  
+# ç¼–è¯‘è¿è¡Œè¿‡ç¨‹å¦‚ä¸‹ï¼š
+## A.å®‰è£…crossbridgeç¯å¢ƒ
+1. ä¸‹è½½[crossbridge](http://sourceforge.net/projects/crossbridge-community/files/latest/download)
+2. ä¸‹è½½[AIRSDK_Compiler](http://www.adobe.com/devnet/air/air-sdk-download.html)
+3. è§£å‹crossbridge
+4. è§£å‹AIRSDK_Compileråˆ°your/path/to/crossbridge/ç›®å½•ä¸‹ï¼Œé‡å‘½åä¸ºflex_sdk
+5. ä¸‹è½½32ä½cygwinçš„[setup-x86.exe](https://cygwin.com/install.html) , å¹¶æ›¿æ¢your/path/to/crossbridge/ç›®å½•ä¸‹çš„setup-x86.exe
+6. æ›´æ¢cygwinçš„æº(å¦‚æœè¿™ä¸ªé»˜è®¤æºä¸‹è½½é€Ÿåº¦ä¸æ…¢ï¼Œå¯ä»¥è·³è¿‡è¿™ä¸€æ­¥))
+    * ç¼–è¾‘your/path/to/crossbridge/ç›®å½•ä¸‹çš„run.batè„šæœ¬:
+        > è„šæœ¬ä¸­æ‰€æœ‰çš„æºåœ°å€**http://cygwin.mirror.constant.com** æ¢æˆè¾ƒå¿«çš„æºï¼Œå›½å†…å¦‚**http://mirrors.163.com/cygwin/**
+7. åŒå‡»è¿è¡Œrun.bat,æŒ‰æç¤ºå®‰è£…
+8. ä¿®æ”¹**your/path/to/crossbridge/sdk/usr/include/malloc.h**å¤´æ–‡ä»¶ä»¥æ”¯æŒPhysxç¼–è¯‘ï¼š
+    * æºæ–‡ä»¶ï¼š  
     ``` C++
             /* $FreeBSD: src/include/malloc.h,v 1.5.36.1.6.1 2010/12/21 17:09:25 kensmith Exp $ */  
             #if __STDC__
@@ -19,24 +19,24 @@
 	            #include <stdlib.h>
 	        #endif
     ```
-    * ¸ÄÎª£º
+    * æ”¹ä¸ºï¼š
     ```C++
             /* $FreeBSD: src/include/malloc.h,v 1.5.36.1.6.1 2010/12/21 17:09:25 kensmith Exp $ */
 			#include <stdlib.h>
 	```
-## B.±àÒëcrossbridge°æ±¾µÄPhsyx
-1. ±à¼­your/path/to/WizzardEngine/PhysXSDK/Source/compiler/crossbridgeÄ¿Â¼ÏÂµÄMakefileÎÄ¼ş:  
-        `line 15£º FLASCC = D:/Unreal/CrossBridge_15.0.0.3/sdk`  
-         ¸ÄÎª: ` FLASCC = your/path/to/crossbridge/sdk`
-2. ´ò¿ªcygwin£¬cdµ½your/path/to/WizzardEngine/PhysXSDK/Source/compiler/crossbridge,Ö´ĞĞmake
-## C.±àÒëcrossbridge°æ±¾µÄWizzardEngine¹¤³Ì
-1. ±à¼­your/path/to/WizzardEngine/WizzardEngine/compiler/crossbridgeÄ¿Â¼ÏÂµÄMakefileÎÄ¼ş£º  
+## B.ç¼–è¯‘crossbridgeç‰ˆæœ¬çš„Phsyx
+1. ç¼–è¾‘your/path/to/WizzardEngine/PhysXSDK/Source/compiler/crossbridgeç›®å½•ä¸‹çš„Makefileæ–‡ä»¶:  
+       ``line 15ï¼š FLASCC = D:/Unreal/CrossBridge_15.0.0.3/sdk``
+         æ”¹ä¸º: ` FLASCC = your/path/to/crossbridge/sdk`
+2. æ‰“å¼€cygwinï¼Œcdåˆ°your/path/to/WizzardEngine/PhysXSDK/Source/compiler/crossbridge,æ‰§è¡Œmake
+## C.ç¼–è¯‘crossbridgeç‰ˆæœ¬çš„WizzardEngineå·¥ç¨‹
+1. ç¼–è¾‘your/path/to/WizzardEngine/WizzardEngine/compiler/crossbridgeç›®å½•ä¸‹çš„Makefileæ–‡ä»¶ï¼š  
         `line 13:FLASCC = /cygdrive/d/Unreal/crossbridge_15.0.0.3/sdk`   
-        ¸ÄÎª£º`FLASCC = your/path/to/crossbridge/sdk`
-2. ´ò¿ªcygwin£¬cdµ½your/path/to/WizzardEngine/PhysXSDK/Source/compiler/crossbridge, Ö´ĞĞmake
-## D.±àÒë²¢ÔËĞĞWizzardEngineAsTest²âÊÔÀı³Ì
-1. ±à¼­your/path/to/WizzardEngine/WizzardEngine/WizzardEngineAsTest/Ä¿Â¼ÏÂµÄMakefileÎÄ¼ş£º  
+        æ”¹ä¸ºï¼š`FLASCC = your/path/to/crossbridge/sdk`
+2. æ‰“å¼€cygwinï¼Œcdåˆ°your/path/to/WizzardEngine/PhysXSDK/Source/compiler/crossbridge, æ‰§è¡Œmake
+## D.ç¼–è¯‘å¹¶è¿è¡ŒWizzardEngineAsTestæµ‹è¯•ä¾‹ç¨‹
+1. ç¼–è¾‘your/path/to/WizzardEngine/WizzardEngine/WizzardEngineAsTest/ç›®å½•ä¸‹çš„Makefileæ–‡ä»¶ï¼š  
         `line 2: FLASCC=D:/Unreal/CrossBridge_15.0.0.3/sdk`  
-        ¸ÄÎª:`FLASCC = your/path/to/crossbridge/sdk`
-2. ´ò¿ªcygwin£¬cd µ½your/path/to/WizzardEngine/WizzardEngine/WizzardEngineAsTest/Ä¿Â¼ÏÂ£¬ Ö´ĞĞmake
-3. ÔËĞĞ: ÔÚcygwinÏÂÊäÈë **./test.exe**
+        æ”¹ä¸º:`FLASCC = your/path/to/crossbridge/sdk`
+2. æ‰“å¼€cygwinï¼Œcd åˆ°your/path/to/WizzardEngine/WizzardEngine/WizzardEngineAsTest/ç›®å½•ä¸‹ï¼Œ æ‰§è¡Œmake
+3. è¿è¡Œ: åœ¨cygwinä¸‹è¾“å…¥ **./test.exe**

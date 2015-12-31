@@ -1,56 +1,9 @@
-±àÒëÔËĞĞ¹ı³ÌÈçÏÂ£º
-A.°²×°crossbridge»·¾³
-	1.ÏÂÔØcrossbridge£ºhttp://sourceforge.net/projects/crossbridge-community/files/15.0.0/
-	2.ÏÂÔØAIRSDK_Compiler http://www.adobe.com/devnet/air/air-sdk-download.html
-	3.½âÑ¹crossbridge
-	4.½âÑ¹AIRSDK_Compilerµ½your/path/to/crossbridge/Ä¿Â¼ÏÂ£¬ÖØÃüÃûÎªflex_sdk
-	5.ÏÂÔØ32Î»cygwinµÄsetup-x86.ex: https://cygwin.com/install.html,  ²¢Ìæ»»your/path/to/crossbridge/Ä¿Â¼ÏÂµÄsetup-x86.exe
-	6.¸ü»»cygwinµÄÔ´:(Èç¹ûÕâ¸öÄ¬ÈÏÔ´ÏÂÔØËÙ¶È²»Âı£¬¿ÉÒÔÌø¹ıÕâÒ»²½)
-		±à¼­your/path/to/crossbridge/Ä¿Â¼ÏÂµÄrun.bat½Å±¾
-		line 87:
-			setup-x86 --arch x86 --quiet-mode --no-admin --no-startmenu --no-desktop --no-shortcuts --root %LAUNCH_DIR%\cygwin --site http://cygwin.mirror.constant.com && setup-x86 --arch x86 --quiet-mode --no-admin --no-startmenu --no-desktop --no-shortcuts --root %CD%\cygwin --site http://cygwin.mirror.constant.com --packages libuuid1,libuuid-devel && run
-		¸ÄÎª£º
-			setup-x86 --arch x86 --quiet-mode --no-admin --no-startmenu --no-desktop --no-shortcuts --root %LAUNCH_DIR%\cygwin --site http://mirrors.163.com/cygwin/ && setup-x86 --arch x86 --quiet-mode --no-admin --no-startmenu --no-desktop --no-shortcuts --root %CD%\cygwin --site http://mirrors.163.com/cygwin/ --packages libuuid1,libuuid-devel && run
-	7.Ë«»÷ÔËĞĞrun.bat,°´ÌáÊ¾°²×°
-	8.ĞŞ¸Äcrossbrige malloc.hÍ·ÎÄ¼şÒÔÖ§³ÖPhysx±àÒë£º
-		±à¼­your/path/to/crossbridge/sdk/usr/include/malloc.h:
-		Ô´ÎÄ¼ş£º
-			#############Ô´ÎÄ¼ş#######################
-			/* $FreeBSD: src/include/malloc.h,v 1.5.36.1.6.1 2010/12/21 17:09:25 kensmith Exp $ */
-			#if __STDC__
-			#error "<malloc.h> has been replaced by <stdlib.h>"
-			#else
-			#include <stdlib.h>
-			#endif
-			############################################
-		¸ÄÎª£º
-			################ĞŞ¸ÄºóÎÄ¼ş###################
-			/* $FreeBSD: src/include/malloc.h,v 1.5.36.1.6.1 2010/12/21 17:09:25 kensmith Exp $ */
-			#include <stdlib.h>
-			#############################################
-			
-
-B.±àÒëcrossbridge°æ±¾µÄPhsyx
-	1.±à¼­your/path/to/WizzardEngine/PhysXSDK/Source/compiler/crossbridgeÄ¿Â¼ÏÂµÄMakefileÎÄ¼ş£º
-		line 15£º
-			FLASCC = D:/Unreal/CrossBridge_15.0.0.3/sdk
-		¸ÄÎª: 
-			FLASCC = your/path/to/crossbridge/sdk
-	2.´ò¿ªcygwin£¬cdµ½your/path/to/WizzardEngine/PhysXSDK/Source/compiler/crossbridge,Ö´ĞĞmake
-C.±àÒëcrossbridge°æ±¾µÄWizzardEngine¹¤³Ì
-	1.±à¼­your/path/to/WizzardEngine/WizzardEngine/compiler/crossbridgeÄ¿Â¼ÏÂµÄMakefileÎÄ¼ş£º
-		line 13:
-			FLASCC = /cygdrive/d/Unreal/crossbridge_15.0.0.3/sdk
-		¸ÄÎª£º
-			FLASCC = your/path/to/crossbridge/sdk
-	2.´ò¿ªcygwin£¬cdµ½your/path/to/WizzardEngine/PhysXSDK/Source/compiler/crossbridge, Ö´ĞĞmake
-
-D.±àÒë²¢ÔËĞĞWizzardEngineAsTest²âÊÔÀı³Ì
-	1.±à¼­your/path/to/WizzardEngine/WizzardEngine/WizzardEngineAsTest/Ä¿Â¼ÏÂµÄMakefileÎÄ¼ş£º
-		line 2:
-			FLASCC=D:/Unreal/CrossBridge_15.0.0.3/sdk
-		¸ÄÎª:
-			FLASCC = your/path/to/crossbridge/sdk
-	2. ´ò¿ªcygwin£¬cd µ½your/path/to/WizzardEngine/WizzardEngine/WizzardEngineAsTest/Ä¿Â¼ÏÂ£¬ Ö´ĞĞmake
-	3.ÔËĞĞ ÔÚcygwinÏÂÊäÈë./test.exe
-	
+#ç¼–è¯‘è¿è¡Œè¿‡ç¨‹å¦‚ä¸‹ï¼š
+##A.å®‰è£…crossbridgeç¯å¢ƒ
+	1. ä¸‹è½½[crossbridge](http://sourceforge.net/projects/crossbridge-community/files/15.0.0/)ï¼š
+	2. ä¸‹è½½[AIRSDK_Compiler](http://www.adobe.com/devnet/air/air-sdk-download.html)
+    3. è§£å‹crossbridge
+    4. è§£å‹AIRSDK_Compileråˆ°your/path/to/crossbridge/ç›®å½•ä¸‹ï¼Œé‡å‘½åä¸ºflex_sdk
+    5. ä¸‹è½½32ä½cygwinçš„[setup-x86.ex](https://cygwin.com/install.html),å¹¶æ›¿æ¢your/path/to/crossbridge/ç›®å½•ä¸‹çš„setup-x86.exe
+    
+    

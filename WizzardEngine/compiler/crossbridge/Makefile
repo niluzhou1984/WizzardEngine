@@ -79,7 +79,7 @@ WE_release_obj = $(WE_release_cpp_o) $(WE_release_cc_o) $(WE_release_c_o)
 WE_LIB_DIR = ./../../Lib/crossbridge
 WE_release_bin := ./../../Lib/crossbridge/libWizzardEngine_x86.a
 
-all: check build_release build_swc
+all: check build_release
 
 build_release: prebuild_release $(WE_release_bin)
 
